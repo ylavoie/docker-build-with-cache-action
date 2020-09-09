@@ -146,7 +146,7 @@ _login_to_aws_ecr() {
 
 _create_aws_ecr_repos() {
   _aws ecr create-repository --repository-name "$INPUT_IMAGE_NAME" 2>&1 | grep -v RepositoryAlreadyExistsException
-  _aws ecr create-repository --repository-name "$INPUT_IMAGE_NAME"${INPUT_CACHE_REPOSITORY_SUFFIX}-stages 2>&1 | grep -v RepositoryAlreadyExistsException
+  _aws ecr create-repository --repository-name "$INPUT_IMAGE_NAME$INPUT_CACHE_REPOSITORY_SUFFIX"-stages 2>&1 | grep -v RepositoryAlreadyExistsException
   return 0
 }
 
@@ -198,7 +198,7 @@ pull_cached_stages() {
     return
   fi
   echo -e "\n[Action Step] Pulling image..."
-  docker pull --all-tags "$(_get_full_image_name)"${INPUT_CACHE_REPOSITORY_SUFFIX}-stages | tee "$PULL_STAGES_LOG" || true
+  docker pull --all-tags "$(_get_full_image_name)$INPUT_CACHE_REPOSITORY_SUFFIX"-stages | tee "$PULL_STAGES_LOG" || true
 }
 
 build_image() {
