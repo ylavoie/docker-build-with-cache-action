@@ -32,6 +32,8 @@ Built-in support for the most known registries: Docker Hub, AWS ECR, GitHub's re
 
 - **pull_image_and_stages**: Set to `false` to avoid pulling from the registry or to build from scratch (default: `true`).
 
+- **cache_repository_suffix**: Specify cache repository (default: <image_name>-stages).
+
 - **build_extra_args**: Extra params for `docker build` (e.g. `"--build-arg=hello=world"`).
 
 - **push_image_and_stages**: Test a command before pushing. Use `false` to not push at all (default: `true`).
@@ -45,7 +47,7 @@ Built-in support for the most known registries: Docker Hub, AWS ECR, GitHub's re
 
 ## Outputs
 
-- **FULL_IMAGE_NAME**: Full name of the Docker Image with the Registry (if provided) and Namespace included.  
+- **FULL_IMAGE_NAME**: Full name of the Docker Image with the Registry (if provided) and Namespace included.
 e.g.: `docker.pkg.github.com/whoan/hello-world/hello-world`
 
 ## How it works

@@ -31,6 +31,9 @@ inputs:
     description: "(Optional) Name of the Dockerfile (default: Dockerfile)"
     required: false
     default: Dockerfile
+  cache_repository_suffix:
+    description: "(Optional) Specify cache repository (default: <image_name>-stages)"
+    required: false
   push_image_and_stages:
     description: "(Optional) Test any command before pushing. Use false to avoid pushing to registry (default: true)"
     required: false
