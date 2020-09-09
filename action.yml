@@ -49,9 +49,6 @@ inputs:
   build_extra_args:
     description: "(Optional) Extra arguments to pass to docker build"
     required: false
-  cache_repository_suffix:
-    description: "(Optional) Specify cache repository (default: <image_name>-stages)"
-    required: false
 
 outputs:
   FULL_IMAGE_NAME:
